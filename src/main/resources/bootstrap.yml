@@ -1,0 +1,23 @@
+server:
+    port: 8882
+spring:
+    application:
+        name: consul-consumer
+    cloud:
+        consul:
+#            host: 192.168.0.201
+            discovery:
+                instance-id: ${spring.application.name}
+                #prefer-ip-address: true
+                #ip-address: 192.168.1.117
+    datasource:
+        driver-class-name: oracle.jdbc.driver.OracleDriver
+        url: jdbc:oracle:thin:@192.168.0.240:1521:orcl
+        username: odin_itms_new
+        password: odin_itms_new
+    jackson:
+        date-format: yyyy-MM-dd
+        time-zone: GMT+8
+mybatis:
+    mapper-locations: classpath:mapper/**/*.xml  #mybatis映射文件的位置
+    type-aliases-package: com.zk.model  #实体对象所在的包
